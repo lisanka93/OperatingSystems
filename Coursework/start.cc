@@ -36,7 +36,7 @@ data->size=_size;                                  //initialising the circular q
 data->front=-1;
 data->end=-1;
 data->numofconsumers=0;
-printf("numofconsumers start%d\n", data->numofconsumers);
+//printf("numofconsumers start%d\n", data->numofconsumers);
 
 /*SEM ARRAY*/
 

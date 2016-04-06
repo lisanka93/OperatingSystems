@@ -31,9 +31,9 @@ int semSetid =sem_attach(SEM_KEY);
 int consumerID = check_arg(argv[1]);
 
 int item = 0;
-printf("numofconsumers before incr%d\n", data->numofconsumers);
+/*printf("numofconsumers before incr%d\n", data->numofconsumers);
 data->numofconsumers++;
-printf("numofconsumers after incr%d\n", data->numofconsumers);
+printf("numofconsumers after incr%d\n", data->numofconsumers);*/
 
 while(sem_timewait(semSetid, 0, 10) != -1)
 {
@@ -64,12 +64,12 @@ time_t finish2 = time(NULL);
 int elapsed2 = (int)finish2 - (int)start;
 
 printf("Consumer(%d) time %d: No jobs left.\n", check_arg(argv[1]), elapsed2);
-
+/*
 printf("numofconsumers before decr%d\n", data->numofconsumers);
 data->numofconsumers--;
-printf("numofconsumers after decr %d\n", data->numofconsumers);
+printf("numofconsumers after decr %d\n", data->numofconsumers);*/
 
-if(data->numofconsumers==-1){
+if(data->numofconsumers==0){
 if(sem_close(semSetid) < 0)
 {
  perror("sem_close");
@@ -87,7 +87,7 @@ printf("program finished, semaphores destroyed.");
 return 0;
 }
 
-sleep(60);
+sleep(15);
 
 return 0;
 }
